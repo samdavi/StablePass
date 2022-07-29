@@ -1,0 +1,1099 @@
+.features-boxed {
+	color: #313437;
+	background-color: #eef4f7;
+}
+
+.features-boxed p {
+	color: #7d8285;
+}
+
+.features-boxed h2 {
+	font-weight: bold;
+	margin-bottom: 40px;
+	padding-top: 40px;
+}
+
+@media (max-width: 767px) {
+	.features-boxed h2 {
+		margin-bottom: 25px;
+		padding-top: 25px;
+		font-size: 24px;
+	}
+}
+
+.features-boxed .intro {
+	font-size: 16px;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.features-boxed .intro p {
+	margin-bottom: 0;
+}
+
+.features-boxed .features {
+	padding: 50px 0;
+}
+
+.features-boxed .item {
+	text-align: center;
+}
+
+.features-boxed .item .box {
+	text-align: center;
+	padding: 20px;
+	background: #313437;
+	margin-bottom: 30px;
+	height: 300px;
+}
+
+.features-boxed .item .box:hover {
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	border-width: 2px;
+	border-color: rgba(50, 50, 93, 0.1);
+	border-style: solid;
+}
+
+.features-boxed .item .icon {
+	font-size: 60px;
+	color: white;
+	margin-top: 20px;
+	margin-bottom: 35px;
+}
+
+.features-boxed .item .name {
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 8px;
+	margin-top: 0;
+	color: inherit;
+}
+
+.features-boxed .item .description {
+	font-size: 15px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+.header-blue {
+	background: linear-gradient(135deg, #172a74, #21a9af);
+	background-color: #184e8e;
+	padding-bottom: 80px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+@media (min-width:768px) {
+	.header-blue {
+		padding-bottom: 120px;
+	}
+}
+
+.header-blue .navbar {
+	background: transparent;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	color: #fff;
+	border-radius: 0;
+	box-shadow: none;
+	border: none;
+}
+
+@media (min-width:768px) {
+	.header-blue .navbar {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+}
+
+.header-blue .navbar .navbar-brand {
+	font-weight: bold;
+	color: inherit;
+}
+
+.header-blue .navbar .navbar-brand:hover {
+	color: #f0f0f0;
+}
+
+.header-blue .navbar .navbar-collapse {
+	border-top: 1px solid rgba(255, 255, 255, 0.3);
+	margin-top: .5rem;
+}
+
+@media (min-width:768px) {
+	.header-blue .navbar .navbar-collapse {
+		border-color: transparent;
+		margin: 0;
+	}
+}
+
+.header-blue .navbar .navbar-collapse span .login {
+	color: #d9d9d9;
+	margin-right: .5rem;
+	text-decoration: none;
+}
+
+.header-blue .navbar .navbar-collapse span .login:hover {
+	color: #fff;
+}
+
+.header-blue .navbar .navbar-toggler {
+	border-color: rgba(255, 255, 255, 0.3);
+}
+
+.header-blue .navbar .navbar-toggler:hover,
+.header-blue .navbar-toggler:focus {
+	background: none;
+}
+
+@media (min-width: 768px) {
+	.header-blue .navbar-nav .nav-link {
+		padding-left: .7rem;
+		padding-right: .7rem;
+	}
+}
+
+@media (min-width: 992px) {
+	.header-blue .navbar-nav .nav-link {
+		padding-left: 1.2rem;
+		padding-right: 1.2rem;
+	}
+}
+
+.header-blue .navbar .navbar-nav>li>.dropdown-menu {
+	margin-top: -5px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+	background-color: #fff;
+	border-radius: 2px;
+}
+
+.header-blue .navbar .dropdown-menu .dropdown-item:focus,
+.header-blue .navbar .dropdown-menu .dropdown-item {
+	line-height: 2;
+	color: #37434d;
+}
+
+.header-blue .navbar .dropdown-menu .dropdown-item:focus,
+.header-blue .navbar .dropdown-menu .dropdown-item:hover {
+	background: #ebeff1;
+}
+
+.header-blue .action-button,
+.header-blue .action-button:not(.disabled):active {
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 40px;
+	color: #ebeff1;
+	box-shadow: none;
+	text-shadow: none;
+	padding: .3rem .8rem;
+	background: transparent;
+	transition: background-color 0.25s;
+	outline: none;
+}
+
+.header-blue .action-button:hover {
+	color: #fff;
+}
+
+.header-blue .navbar form label {
+	color: #d9d9d9;
+}
+
+.header-blue .navbar form .search-field {
+	display: inline-block;
+	width: 80%;
+	background: none;
+	border: none;
+	border-bottom: 1px solid transparent;
+	border-radius: 0;
+	color: #ccc;
+	box-shadow: none;
+	color: inherit;
+	transition: border-bottom-color 0.3s;
+}
+
+.header-blue .navbar form .search-field:focus {
+	border-bottom: 1px solid #ccc;
+}
+
+.header-blue .hero {
+	margin-top: 20px;
+	text-align: center;
+}
+
+@media (min-width:768px) {
+	.header-blue .hero {
+		margin-top: 60px;
+		text-align: left;
+	}
+}
+
+.header-blue .hero h1 {
+	color: #fff;
+	font-size: 40px;
+	margin-top: 0;
+	margin-bottom: 15px;
+	font-weight: 300;
+	line-height: 1.4;
+}
+
+@media (min-width:992px) {
+	.header-blue .hero h1 {
+		margin-top: 190px;
+		margin-bottom: 24px;
+		line-height: 1.2;
+	}
+}
+
+.header-blue .hero p {
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 20px;
+	margin-bottom: 30px;
+	font-weight: 300;
+}
+
+.header-blue .phone-holder {
+	text-align: right;
+}
+
+.header-blue div.backgroundelement {
+	position: relative;
+	max-width: 300px;
+	margin: 20px;
+	display: inline-block;
+	z-index: 1;
+}
+
+.header-blue .backgroundelement img.device {
+	width: 100%;
+	height: auto;
+}
+
+.header-blue .backgroundelement .screen {
+	position: absolute;
+	width: 94%;
+	height: 98%;
+	top: 1%;
+	left: 3%;
+	border: 1px solid #444;
+	border-radius: 20px;
+	background-color: #aaa;
+	overflow: hidden;
+	background: url(../../assets/img/screen-content-phone.jpg);
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+}
+
+.header-blue .backgroundelement .screen:before {
+	content: '';
+	background-color: #fff;
+	position: absolute;
+	width: 70%;
+	height: 140%;
+	top: -12%;
+	right: -60%;
+	transform: rotate(-19deg);
+	opacity: 0.2;
+}
+
+.highlight-blue p {
+	color: #c4d5ef;
+	line-height: 1.5;
+}
+
+.highlight-blue h2 {
+	font-weight: normal;
+	margin-bottom: 25px;
+	line-height: 1.5;
+	padding-top: 0;
+	margin-top: 0;
+	color: inherit;
+}
+
+.highlight-blue .intro {
+	font-size: 16px;
+	max-width: 500px;
+	margin: 0 auto 25px;
+}
+
+.highlight-blue .buttons {
+	text-align: center;
+}
+
+.highlight-blue .buttons .btn {
+	padding: 16px 32px;
+	margin: 6px;
+	border: none;
+	background: none;
+	box-shadow: none;
+	text-shadow: none;
+	opacity: 0.9;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 13px;
+	letter-spacing: 0.4px;
+	line-height: 1;
+}
+
+.highlight-blue .buttons .btn:hover {
+	opacity: 1;
+}
+
+.highlight-blue .buttons .btn:active {
+	transform: translateY(1px);
+}
+
+.highlight-blue .buttons .btn-primary,
+.highlight-blue .buttons .btn-primary:active {
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	border-radius: 6px;
+	color: #ebeff1;
+	box-shadow: none;
+	text-shadow: none;
+	padding: 14px 24px;
+	background: transparent;
+	transition: background-color 0.25s;
+}
+
+.main-elements {
+	color: #313437;
+	background-color: #eef4f7;
+	padding: 50px 0 55px;
+	overflow: hidden;
+}
+
+@media (max-width: 767px) {
+	.main-elements {
+		text-align: center;
+	}
+}
+
+.main-elements p {
+	color: #7d8285;
+}
+
+.main-elements h2 {
+	font-weight: bold;
+	margin-bottom: 35px;
+	line-height: 1.5;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+.main-elements .intro {
+	font-size: 18px;
+	max-width: 500px;
+	line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+	.main-elements .intro {
+		max-width: none;
+	}
+}
+
+.main-elements .intro p {
+	margin-bottom: 35px;
+}
+
+.main-elements .intro .btn {
+	padding: 16px 32px;
+	border: none;
+	background: none;
+	box-shadow: none;
+	text-shadow: none;
+	opacity: 0.9;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 13px;
+	letter-spacing: 0.4px;
+	line-height: 1;
+}
+
+.main-elements .intro .btn:hover {
+	opacity: 1;
+}
+
+.main-elements .intro .btn:active {
+	transform: translateY(1px);
+}
+
+.main-elements .intro .btn-primary {
+	background-color: #055ada;
+	color: #fff;
+}
+
+.main-elements .backgroundelement {
+	position: relative;
+	max-width: 260px;
+	margin-top: -30px;
+	margin-bottom: -230px;
+	transform: rotate(-15deg);
+}
+
+.main-elements .backgroundelement img.device {
+	width: 100%;
+	height: auto;
+}
+
+.main-elements .backgroundelement .screen {
+	position: absolute;
+	width: 94%;
+	height: 91%;
+	top: 1%;
+	left: 3%;
+	border: 1px solid #444;
+	border-radius: 20px;
+	background-color: #aaa;
+	overflow: hidden;
+	background: url(../../assets/img/screen-content-phone.jpg);
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+}
+
+.main-elements .backgroundelement .screen:before {
+	content: "";
+	background-color: #fff;
+	position: absolute;
+	width: 70%;
+	height: 140%;
+	top: -6%;
+	right: -60%;
+	transform: rotate(-19deg);
+	opacity: 0.2;
+}
+
+.badpassword {
+	color: red;
+}
+
+.goodpassword {
+	color: green;
+}
+
+.hashvalueschecker {
+	margin-top: 20px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+#passwordorderedlist {
+	color: #7D8285;
+	padding-left: 20px;
+}
+
+::placeholder {
+	font-size: 15px;
+	text-align: center;
+}
+
+.PasswordManagerText * {
+	margin-top: 20px;
+	text-decoration: none;
+	color: #ACB1B4;
+	font-size: 15px;
+}
+
+table,
+th,
+td {
+	border: none;
+	color: #7D8285;
+}
+
+tr {
+	max-width: 100%;
+	white-space: nowrap;
+}
+
+th {
+	font-weight: normal;
+}
+
+.PasswordCharactersformat {
+	display: inline-block;
+	margin-bottom: 0px;
+}
+
+#CheckPasswords {
+	text-align: center;
+}
+
+.footer-copyright.text-center.py-3 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+}
+
+.FourZeroFourDiv {
+	margin: 20px 20px 20px 20px;
+	padding: 70px 0;
+	text-align: center;
+}
+
+@media only screen and (max-width: 991px) {
+
+	#ButtonLowercase,
+	#ButtonUppercase,
+	#ButtonSymbols,
+	#ButtonNumbers {
+		width: 100% !important;
+		margin-top: 6px;
+		height: 50px;
+	}
+
+	td,
+	th {
+		display: block;
+	}
+}
+
+.MoredetailsCSS {
+	display: inline-block;
+}
+
+.description {
+	color: white !important;
+}
+
+.name {
+	color: white !important;
+}
+
+.features-boxed li {
+	color: white !important;
+	margin-bottom: 40px !important;
+	margin-top: 20px !important;
+}
+
+mark {
+	border-radius: 5px;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+.realistic-marker-highlight {
+	position: relative;
+}
+
+.realistic-marker-highlight:before {
+	content: "";
+	background-color: #ff6db7;
+	width: 100%;
+	height: 1em;
+	position: absolute;
+	z-index: -1;
+	filter: url(#marker-shape);
+	left: -0.25em;
+	top: 0.1em;
+	padding: 0 0.25em;
+}
+
+h3 {
+	margin-bottom: 40px;
+	margin-top: 30px;
+}
+
+#HolderforAlert,
+#HolderforAlert_checking {
+	display: none;
+}
+
+#PasswordGenerating {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.AdvancedOptionsDiv {
+	display: none;
+}
+
+*:focus {
+	outline: 0 !important;
+}
+
+.Showadvanceddetails {
+	margin-top: 20px !important;
+}
+
+.white-text {
+	color: white;
+}
+
+.black {
+	background-color: #323437 !important;
+}
+
+#slider::-moz-range-track {
+	height: 15px;
+	-webkit-appearance: none;
+	outline: none;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+#slider::-webkit-slider-thumb {
+	height: 15px;
+	-webkit-appearance: none;
+	background: #323437;
+}
+
+#slider {
+	-webkit-appearance: none;
+	outline: none;
+	border-radius: 15px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.video_container {
+	margin-top: 50px;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	padding-top: 56.25%;
+	border-radius: 10px;
+}
+
+.video_iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.UnpressedButton {
+	background: none !important;
+	border: 1px !important;
+	border-style: solid !important;
+	border-color: #313437 !important;
+}
+
+.Pressedbutton {
+	color: white !important;
+}
+
+.btn:hover {
+	color: white !important;
+	background-color: #313437 !important;
+}
+
+.inlineblock {
+	display: inline-block;
+}
+
+#RecommendedSettings {
+	display: block;
+	margin-bottom: 10px;
+	color: #313437;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+	width: 300px;
+	height: 5px;
+	background: #ddd;
+	border: none;
+	border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: goldenrod;
+	margin-top: -4px;
+}
+
+input[type="range"]:focus {
+	outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+	background: #ccc;
+}
+
+.col {
+	float: left;
+}
+
+input:focus {
+	outline: none;
+}
+
+input {
+	outline: none;
+}
+
+#result {
+	border-radius: 2px;
+	background-color: #313437;
+	color: white;
+	padding: 0px 10px 0px 10px;
+}
+
+.navbar {
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.02);
+}
+
+.nav-item {
+	border-radius: 2px;
+	font-size: 13px;
+	margin-right: 10px;
+	display: inline-block;
+	position: relative;
+	color: #0087ca;
+}
+
+.navhover::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0.1em;
+	background-color: black;
+	opacity: 0;
+	transition: opacity 300ms, transform 300ms;
+}
+
+.navhover:hover {
+	background-color: #eef4f7;
+}
+
+.navhover:hover::after,
+.navhover:focus::after {
+	opacity: 1;
+	transform: translate3d(0, 0.2em, 0);
+}
+
+#PasswordInputField {
+	width: 80%;
+	height: 50px;
+	border-style: none;
+}
+
+.GeneratedPasswordStrength {
+	width: 100%;
+	height: 5px;
+	background-color: #055ada;
+	border-radius: 20px;
+}
+
+.PasswordElements {
+	margin-top: 80px;
+	width: 100%;
+	background-color: white;
+	border-radius: 15px;
+	padding-bottom: 25px;
+}
+
+.PasswordPropertiesText {
+	border-bottom: 2px solid #eef4f7;
+	line-height: 2.7rem;
+	margin-bottom: 26px;
+}
+
+.InnerPasswordElements {
+	padding: 10px 20px 0px 20px;
+	white-space: normal;
+}
+
+.NumberInputSlider {
+	flex: 0 0 auto;
+	width: 33.3px;
+}
+
+.NumberInputSlider1 {
+	width: 30%;
+}
+
+.NumberInputSlider2 {
+	flex: 0 0 auto;
+	width: 66.66666667%;
+}
+
+.form-check-label {
+	text-align: left;
+}
+
+.form-check-label {
+	text-align: left;
+}
+
+mainelementsborder {
+	border-radius: 20px;
+}
+
+#SubmitButton,
+#CheckerSubmitButton {
+	border: none;
+	margin-top: 30px;
+	width: 100%;
+}
+
+.Titlepage {
+	border-radius: 25px;
+}
+
+#PasswordElementsInput {
+	border-radius: 20px;
+	width: 100%;
+}
+
+#frontimage {
+	width: 200px;
+	display: block;
+	margin-top: 50% !important;
+	margin: auto;
+}
+
+#SubmitButton {
+	border: none;
+}
+
+.box {
+	border-radius: 6px;
+	height: 330px;
+}
+
+#heading1 {
+	margin-top: 30px;
+}
+
+body {
+	background-color: #eef4f7;
+}
+
+.btn {
+	align-self: center;
+}
+
+#MainText {
+	padding: 10px 30px 40px 10px;
+	background-color: #ffffff;
+	margin-top: 20px;
+	margin-right: 10%;
+	margin-left: 10%;
+	border-radius: 10px;
+}
+
+#contactheader {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+#maintext {
+	margin-left: 20px;
+}
+
+#contactusbutton {
+	margin-left: 20px;
+	border-color: #eef4f7;
+	color: black;
+}
+
+#contactusbutton:hover {
+	background-color: #eef4f7;
+}
+
+#maintext-1 {
+	margin-left: 20px;
+}
+
+.AboutFeatures:li {
+	margin-top: 15px;
+}
+
+.form-check-label {
+	display: block;
+}
+
+.form-check-input {
+	border-radius: 0px !important;
+}
+
+.AboutFeatures {
+	margin-top: 10px;
+}
+
+.input-group {
+	height: 60px;
+}
+
+.input-group:focus {
+	border: none;
+}
+
+.input-group:hover {
+	border: none;
+}
+
+#CopyButton {
+	background-color: #313437;
+	border-style: none !important;
+	height: 60px;
+	border-color: transparent;
+}
+
+#PasswordInput,
+#PasswordInput_checking {
+	border-radius: 10px 0px 0px 10px !important;
+	border-color: transparent !important;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#CopyButton:focus {
+	outline-width: 0 !important;
+}
+
+#PasswordInput:focus {
+	outline-width: 0 !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+@media (max-width: 500px) {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+#Printwindow {
+	display: none;
+}
+
+.InnerPasswordElements>strong {
+	color: white;
+}
+
+.InnerPasswordElements>p {
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+#passwordreporttext {
+	color: white;
+	font-weight: bold;
+}
+
+hr {
+	color: white !important;
+	height: 2px !important;
+	opacity: 1 !important;
+}
+
+#passwordreporttext {
+	margin-bottom: 0px;
+	margin-top: 5px;
+	font-size: 20px;
+}
+
+#PasswordCheckerStatus {
+	margin-top: 40px;
+	text-align: center;
+	margin-bottom: 0px !important;
+}
+
+.form-check {
+	margin-top: 10px;
+}
+
+input:disabled {
+	background-color: white !important;
+}
+
+.password_strong {
+	color: green !important;
+}
+
+.password_medium {
+	color: orange !important;
+}
+
+.password_badpassword {
+	color: orangered !important;
+}
+
+.password_verybadpassword {
+	color: red !important;
+}
+
+.strengthpassword {
+	display: inline;
+	padding: 5px 10px 5px 10px;
+	background: #313437;
+	border-radius: 5px;
+}
+
+.whitetext {
+	color: white !important;
+}
+
+.advancedoptioninput {
+	width: 70px;
+	background: #EEF4F7;
+	border-color: none;
+	border-radius: 10px;
+	font-size: 1rem;
+	margin-left: 10px;
+	text-align: right;
+	display: none;
+	float: right;
+	border: none;
+	padding-right: 8px;
+}
+
+#showdavancedoptions {
+	margin-top: 10px;
+	display: block;
+	margin-bottom: 10px;
+	color: #313437;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.nohighlight {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.btn {
+	text-align: center !important;
+}

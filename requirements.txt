@@ -1,0 +1,2 @@
+Flask==2.1.1
+search_that_hash==0.2.8

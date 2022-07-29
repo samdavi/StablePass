@@ -1,0 +1,16 @@
+<!--Navigation bar-->
+<nav class="navbar navbar-light navbar-expand-md sticky-top" style="background: #ffffff;">
+    <div class="container">
+       <a class="navbar-brand" href="#"><strong></strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+       <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="navbar-nav">
+             <li id="branding" class="nav-item"><a class="nav-link" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" title="Test" href="{{ url_for('home') }}" style="border-style : none ;"><b>StablePass.com</b></a></li>
+             <li class="nav-item navhover"><a class="nav-link" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" href="{{ url_for('home') }}" title="Generate your passwords!">Generate</a></li>
+             <li class="nav-item navhover"><a class="nav-link" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" href="{{ url_for('Checker') }}" title="Check your passwords!">Check</a></li>
+             <li class="nav-item navhover"><a class="nav-link" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" href="{{ url_for('about') }}" title="About">About</a></li>
+             <li class="nav-item navhover"><a class="nav-link" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="bottom" href="{{ url_for('contact') }}" title="Contacts">Contact</a></li>
+          </ul>
+       </div>
+    </div>
+ </nav>
+ <!--end of Navigation bar--> 

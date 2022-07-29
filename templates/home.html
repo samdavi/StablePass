@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+      <title>StablePass: Generate Password</title>
+      <!--Styles-->
+      {% include '_styles.html' %}
+      <script src="{{ url_for('static', filename='Javascript/home_APIRequest.js')}}"></script>
+      <script src="{{ url_for('static', filename='Javascript/home_checkboxsyncwithbuttons.js')}}"></script>
+      <script src="{{ url_for('static', filename='Javascript/home_copybutton.js')}}"></script>
+      <script src="{{ url_for('static', filename='Javascript/home_recommendedsettings.js')}}"></script>
+      <script src="{{ url_for('static', filename='Javascript/home_savefunction.js')}}"></script>
+      <script src="{{ url_for('static', filename='Javascript/home_UpdateSliderLength.js')}}"></script>
+      <script src="{{ url_for('static', filename='Javascript/home_passwordstrength.js')}}"></script>
+      <script src="{{ url_for('static', filename='Javascript/home_advancedOptions.js')}}"></script>
+      <!--end of Styles-->
+   </head>
+   <body>
+      <div id="Printwindow">
+         <p><b>Label: </b><a id="PrintWindowSite"></a></p>
+         <p><b>Password: </b><a id="PrintWindowPassword"></a></p>
+         <p><b>Password Strength: </b><a id="PrintWindowPasswordStrength"></a></p>
+         <div id="Printwindowhashinginformation"></div>
+      </div>
+      <!--Navigation bar-->
+      {% include '_navbar.html' %}
+      <!-- GenerateSaveDetails -->
+      <div id="savemodal" class="modal fade" tabindex="-1">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title">Additional Details</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+               </div>
+               <div class="modal-body">
+                  <p> <strong>Please provide additional details about this password. (Optional) </strong> </p>
+                  <form>
+                     <div class="form-group">
+                        <p>This information is kept private and not sent to backend servers. </p>
+                        <label for="message-text" class="col-form-label">Give label for Website or Service Password was generated for:</label>
+                        <input type="text" class="form-control" id="sitegeneratedfor" placeholder="Eg. Amazon.co.uk" style="text-align:left;">
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" value="" id="checkboxHashingInformation">
+                           <label class="form-check-label" for="flexCheckDefault">
+                           Include Password Report (Leave blank if unsure)
+                           </label>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn Pressedbutton" style="background: rgb(50, 52, 55);" data-bs-dismiss="modal" onclick="Printortxt()">Continue</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--Error Message-->
+      <div id="error" class="modal fade" tabindex="-1">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title">Error</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+               </div>
+               <div class="modal-body">
+                  <p> <strong> The generate properties you selected are not appropriate. </strong> <br> <br> Please make sure you have selected at least one option to generate your password.  </p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn Pressedbutton" style="background: rgb(50, 52, 55);" data-bs-dismiss="modal">Dismiss</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <section class="main-elements">
+         <div class="container">
+            <div>
+               <div>
+                  <h2 id="ToolText">Secure Password Generator</h2>
+                  <div id="HolderforAlert">
+                     <div id="Alert" class="alert alert-warning d-flex align-items-center" role="alert">
+                        <i class="fas fa-cog fa-spin"></i>
+                        <div class="PasswordGenerating"> <strong style="margin-left:20px;">Please Wait - Password is being generated... Hashes are being checked... </strong> </div>
+                     </div>
+                  </div>
+                  <div id="PasswordElementsInput">
+                     <div class="input-group">
+                        <input disabled autocomplete="off" class="form-control" type="text" id="PasswordInput" placeholder="( Generated Password Will Appear Here )" />
+                        <button class="btn btn-primary" id="CopyButton" onclick="copyFunction()">Copy</button>
+                     </div>
+                     <div class="PasswordManagerText">
+                        <p> Please use a password manager such as <a href="https://1password.com/" target="_blank" rel="noopener noreferrer"> 1Password (Paid) </a>, <a href="https://www.lastpass.com/" target="_blank" rel="noopener noreferrer"> LastPass (Free/Paid) </a>, <a href="https://bitwarden.com//" target="_blank" rel="noopener noreferrer"> Bitwarden (Free/Paid) </a>, <a href="https://keepass.info/" target="_blank" rel="noopener noreferrer"> KeePass (Free) </a> to securely store and remember generated passwords. Alternatively you can save as text file or print using the buttons below which will appear after password generation. </p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div>
+                     <button class="btn UnpressedButton hidden" id="savetxtbutton" onclick="savemodal(event)">Save Password to txt file</button>
+                     <button class="btn UnpressedButton hidden" id="saveprintbutton" onclick="savemodal(event)">Print Password</button>
+                  </div>
+               </div>
+               <button class="btn Showadvanceddetails" id="Showadvanceddetails">Click Here to View Password Report ⯆</button>
+               {% include '_AdvancedOptionsElement.html' %}
+               <!-- Form Start-->
+               <form id="form">
+                  <div class="PasswordElements">
+                     <div class="InnerPasswordElements">
+                        <h5 class="text-start PasswordPropertiesText" id="PasswordPropertiesText" style="font-weight: bold;">Generate Properties</h5>
+                        <div class="inlineblock strengthpassword">
+                           <strong>
+                              <p class="inlineblock whitetext">Strength: </p>
+                           </strong>
+                           <strong>
+                              <p id="PasswordStrengthGenerate" class="inlineblock whitetext">N/A</p>
+                           </strong>
+                        </div>
+                        <p id="RecommendedSettings" class="nohighlight" type="button" onclick="RecommendedSettings()">( Click Here To Use Recommended Settings )</p>
+                        <p>Use the slider and checkboxes to define the preferences of your password then click 'generate'.</p>
+                        <div class="row">
+                           <div>
+                              <p class="inlineblock">Length</p>
+                              <span id="result" class="inlineblock">8</span>
+                           </div>
+                        </div>
+                        <div>
+                           <input autocomplete="off" id="slider" class="form-range" type="range" min="8" max="128" value="8" oninput="update(); passwordstrength();">
+                           <div id="additionalelements">
+                           </div>
+                           <!-- Hidden Checkbox-->
+                           <input autocomplete="off" class="hidden" type="checkbox" id="CheckboxButtonLowercase" name="preferences" value="Lowercase" />
+                           <input autocomplete="off" class="hidden" type="checkbox" id="CheckboxButtonUppercase" name="preferences" value="Uppercase" />
+                           <input autocomplete="off" class="hidden" type="checkbox" id="CheckboxButtonSymbols" name="preferences" value="Symbols" />
+                           <input autocomplete="off" class="hidden" type="checkbox" id="CheckboxButtonNumbers" name="preferences" value="Numbers" />
+                           <!-- Checkbox Buttons -->
+                           <p id="showdavancedoptions" class="nohighlight" type="button" onclick="">Click here to Specify minimum character per type (Show)</p>
+                           <button class="btn UnpressedButton" id="ButtonLowercase" type="button" style="background: rgb(50, 52, 55);" onclick="buttonoptions(event);">Lowercase
+                           <input autocomplete="off" dir="rtl" class="advancedoptioninput" id="ButtonLowercaseValue" type="number" min="1" value=0 disabled>
+                           </button>
+                           <button class="btn UnpressedButton" id="ButtonUppercase" type="button" style="background: rgb(50, 52, 55);" onclick="buttonoptions(event);">Uppercase
+                           <input autocomplete="off" dir="rtl" class="advancedoptioninput" id="ButtonUppercaseValue" type="number" min="1" value=0 disabled>
+                           </button>
+                           <button class="btn UnpressedButton" id="ButtonSymbols" type="button" style="background: rgb(50, 52, 55);" onclick="buttonoptions(event);">Symbols
+                           <input autocomplete="off" dir="rtl" class="advancedoptioninput" id="ButtonSymbolsValue" type="number" min="1" value=0 disabled>
+                           </button>
+                           <button class="btn UnpressedButton" id="ButtonNumbers" type="button" style="background: rgb(50, 52, 55);" onclick="buttonoptions(event);">Numbers
+                           <input autocomplete="off" dir="rtl" class="advancedoptioninput" id="ButtonNumbersValue" type="number" min="1" value=0 disabled>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Form Finish -->
+                  <button class="btn btn-primary" id="SubmitButton" style="background: rgb(50, 52, 55);">Generate</button>
+               </form>
+            </div>
+         </div>
+         </div>
+      </section>
+      <section class="features-boxed" style="background: rgb(255, 255, 255);">
+         <div class="container">
+            <section style="padding-top: 40px;">
+               <div class="features-boxed" style="background: #313437; border-radius: 10px; margin-left: 0px; margin-right: 0px; padding: 20px 50px 20px 50px;">
+                  <h3 class="" style="color: white;">
+                     <strong>  What is this Tool? </strong>
+                  </h3>
+                  <p style="color: white;">
+                     This tool let your generate secure passwords that are uncrackable using typical methods. You have the option to create 8 - 128 Character passwords with lowercase characters, uppercase characters, symbols and numbers.
+                     <br><br>
+                     Each password generated is converted to a MD5 and SHA256 hash and attempted to be reversed from hash value to plaintext using online rainbow tables from various sources. If the random password was 
+                     reversed successfully, than the generated password is disgarded and a new password is generated and put through the same process. Once the algorithm generates a password that cannot be reversed to 
+                     plaintext, it is shown to the user.
+                  </p>
+                  <h3 style="color: white;">
+                     <strong>How does this tool keep me safe? </strong>
+                  </h3>
+                  <p style="color: white;">
+                     When you register to an online service, your password is not actually sent and stored on the website as the password you typed, however instead as a value created by running your password through an algorithm. 
+                     When you then want to login to an online service, your password is put through this algorithm and compared against the value in the database and if they match, then the password is the same and therefore you are 
+                     able to login. 
+                     <br><br> This is called <mark><strong>hashing</strong></mark> and is used to protect users in the event of a databreach as hackers don't then get the password that you typed into the website. These Hashing algorithms are 
+                     designed to be one-way, and therefore irreversable- although hackers have still found ways to reverse passwords using <mark><strong>Rainbow Tables</strong></mark> and <mark><Strong>Dictionary Attacks</Strong></mark> which compare your hashes
+                     to attackers generated hashes in the attempt to create the same hash and therefore uncover your password. 
+                     <br><br> This tool keeps you safe because it creates passwords that have not been un-hashed before and therefore prevents attackers using typical and fast methods from finding out your password.
+                  </p>
+                  <h3 style="color: white;">
+                     <strong>Real life Example. </strong>
+                  </h3>
+                  <p style="color: white;">
+                     Lets say we have two passwords 'aaron431' which has been created by someone and '8ddpdng9' which has been created by this generator. From the outside you may think that both passwords are safe, although 'aaron431' is actually extremely worse. Lets see why.
+                  </p>
+                  <ol>
+                     <li><mark>We hash both values using sha256</mark> 
+                        <br>aaron431 = 37a199c360ae9f91285e88bdded7f041025a0954f5984891d280e2419b176dd4
+                        <br>8ddpdng9 = ea47ff2b39a8880d902d1f7cbb672f321a081cd402646080e48c3e604d236396
+                     </li>
+                     <li><mark>An attacker compromises a database using one of many methods and is able to obtain our hash value</mark>
+                        <br> Phishing, SQL Injection, Brute Force, Insider Threat, Malware
+                     </li>
+                     <li><mark>Attacker attempts to find password from hashes</mark> 
+                        <br> An attacker grabs a list of <a href="https://www.csoonline.com/article/3526408/most-common-passwords.html" style="text-decoration: none;"> the most common passwords from 2018 - 2020 </a> and 
+                        creates a hashes for each password on the list for them to then compare against each hashed password from the database.
+                     </li>
+                     <li><mark>Attacker is able to get one of the passwords!!</mark> 
+                        <br> As 'aaron431' is the 18th most used password within 2018 and the attacker has created a hash value for it, he was able to find the text value for 
+                        the hash and therefore determine the password was 'aaron431'. Although, as '8ddpdng9' was randomly generated, is not a popular password, and does contains words, 
+                        it's almost imposible that the attacker will be able to reverse this hash and find the text value of the password. Even if the attacker looks on the internet 
+                        he is very unlikely to find the plaintext of this password as this generator has already scraped the internet for the text value of this password and it was
+                        unable to find it.
+                     </li>
+                  </ol>
+               </div>
+            </section>
+            <div class="video_container">
+               <iframe class="video_iframe" src="https://www.youtube-nocookie.com/embed/RtUvMJFP_IE?modestbranding=1&showinfo=0&color=white" width="560" height="315" frameborder="0"></iframe>
+            </div>
+            <p style="margin-top: 20px" class="text-center">( Video Credit of <a style="text-decoration: none;" href="https://www.youtube.com/channel/UCzWQYUVCpZqtN93H8RR44Qw">Seeker</a> )</p>
+            <div class="intro">
+               <h2 class="text-center">Features</h2>
+               <p class="text-center">At a glance.</p>
+            </div>
+            <div class="row justify-content-center features">
+               <div class="col-sm-6 col-md-5 col-lg-4 item">
+                  <div class="box">
+                     <i class="fa fa-mobile icon"></i>
+                     <h3 class="name">Works everywhere</h3>
+                     <p class="description">Built using HTML5 and bootstrap to offer availability on a range of platforms that have compatible web browsers.&nbsp;&nbsp;</p>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-5 col-lg-4 item">
+                  <div class="box">
+                     <i class="fas fa-mask icon"></i>
+                     <h3 class="name" style="color: #191919;">Anonymous</h3>
+                     <p class="description">We do not collect any personal or identifiable information from you. There is no logging or processing of any your data.</p>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-5 col-lg-4 item">
+                  <div class="box">
+                     <i class="fab fa-slack-hash icon"></i>
+                     <h3 class="name">Hash Comparison</h3>
+                     <p class="description"></p>
+                     <p class="description">Before a password is generated, it is hashed and compared within databases of leaked hashes to ensure the password secure.</p>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-5 col-lg-4 item">
+                  <div class="box">
+                     <i class="fas fa-smile-beam icon"></i>
+                     <h3 class="name">Free to use</h3>
+                     <p class="description">There is no fee or subscription for this service. Creation has been made to better the community.&nbsp;</p>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-5 col-lg-4 item">
+                  <div class="box">
+                     <i class="fa fa-github icon"></i>
+                     <h3 class="name">Built upon 'S-T-H'</h3>
+                     <p class="description"><a href="https://github.com/HashPals/Search-That-Hash" style="text-decoration: none;">Search that Hash (STH)</a> is an open-source project for searching hashes online.</p>
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-5 col-lg-4 item">
+                  <div class="box">
+                     <i class="fas fa-thumbs-up icon"></i>
+                     <h3 class="name">Easy to use</h3>
+                     <p class="description">Create simple and advanced passwords in seconds using your own pre-determined preferences.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </body>
+   <!--Footer-->
+   {% include '_footer.html' %}
+   <!--end of Footer-->
+</html>
