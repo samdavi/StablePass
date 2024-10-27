@@ -1,6 +1,3 @@
-# Samuel Davies - Student S5109747
-# Bournemouth University
-
 # Dependencies
 from flask import Flask, jsonify, render_template, request, jsonify
 from search_that_hash import api
@@ -8,10 +5,8 @@ import secrets
 import string
 import hashlib
 
-
 # initialize: To Tell Python this is a Flask Application.
 app = Flask(__name__)
-
 
 # Password strength function: To determine the password strength of a given Password. - You must pass a (password) to this function.
 def passwordstrength(password):

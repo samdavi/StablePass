@@ -89,11 +89,11 @@ $(document).ready(function() {
                     if (data.passwordstatus == "Cracked") {
 
                         $("#PasswordCheckerStatus").addClass("badpassword");
-                        $("#PasswordCheckerStatus").text("' " + _password + " '" + " has been leaked online and is not safe to use.");
+                        $("#PasswordCheckerStatus").text("The hash of ' " + _password + " ' can be reversed to plaintext online and is not safe to use.");
                         GeneratePasswordPrompt.classList.remove("hidden");
                     } else {
                         $("#PasswordCheckerStatus").addClass("goodpassword");
-                        $("#PasswordCheckerStatus").text("'" + _password + "'" + " has not been leaked online and is safe to use.");
+                        $("#PasswordCheckerStatus").text("The hash of ' " + _password + " ' cannot be reversed to plaintext online and is safe to use.");
                     }
                 }
             });

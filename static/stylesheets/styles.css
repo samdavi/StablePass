@@ -1,3 +1,12 @@
+body, html {
+    overflow-x:hidden;
+}
+
+.credit {
+        clear: both;
+        white-space: pre;
+}
+
 .features-boxed {
 	color: #313437;
 	background-color: #eef4f7;
