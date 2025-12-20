@@ -333,4 +333,4 @@ def page_not_found(e):
 
 # Deployment: To tell Flask to run and how to run the application
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
