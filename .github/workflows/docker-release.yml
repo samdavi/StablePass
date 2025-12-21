@@ -1,0 +1,38 @@
+# Builds and publishes a Docker image to Docker Hub on every GitHub release
+name: Build and Publish Docker Image
+
+on:
+  # Trigger when a release is published
+  release:
+    types: [published]
+
+jobs:
+  build-and-push:
+    # Use a Linux runner with Docker preinstalled
+    runs-on: ubuntu-latest
+
+    steps:
+      # Pull repository contents into the runner
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Enable Docker Buildx for image builds
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Authenticate to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Build the Docker image and push it to Docker Hub
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            samdavi/stablepass:${{ github.ref_name }}
+            samdavi/stablepass:latest
