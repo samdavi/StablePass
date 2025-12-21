@@ -36,5 +36,5 @@ jobs:
           context: .
           push: true
           tags: |
-            samdavi/stablepass:${{ github.ref_name }}
-            samdavi/stablepass:latest
+            secbysam/stablepass:${{ github.ref_name }}
+            secbysam/stablepass:latest
