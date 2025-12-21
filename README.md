@@ -6,6 +6,8 @@ Unlike standard generators, every password created by StablePass is automaticall
 
 ![StablePass Logo](assets/Generate-Password-screenshot.png)
 
+![StablePass Logo](assets/Check-Password-screenshot.png)
+
 ---
 
 ## 🌐 Access StablePass
