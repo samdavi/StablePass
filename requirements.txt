@@ -1,6 +1,2 @@
-Flask==2.1.3
+Flask==2.1.1
 search_that_hash==0.2.8
-requests>=2.32.2
-urllib3>=2.2.2
-werkzeug>=2.1.3  # optional: matches Flask 2.1.3
-zipp>=3.19.1
