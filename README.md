@@ -4,6 +4,8 @@
 
 Unlike standard generators, every password created by StablePass is automatically cross-referenced against a network of **20+ popular online rainbow tables**. If a generated password’s hash is found in these databases (meaning it can be reversed to plaintext instantly), StablePass discards it and generates a new one.
 
+![StablePass Logo](assets/Generate-Password-screenshot.png)
+
 ---
 
 ## 🌐 Access StablePass
