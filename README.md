@@ -10,6 +10,31 @@ Unlike standard generators, every password created by StablePass is automaticall
 
 ---
 
+## 🛡️ How StablePass Protects You
+
+1. **Password Generation**  
+   Users customize password properties such as length and character mix.
+
+2. **Hashing & Verification**  
+   The candidate password is hashed (MD5, SHA-256, etc.) and checked against **20+ online rainbow tables**.
+
+3. **Secure Delivery**  
+   Only passwords that return **zero matches** (uncrackable via rainbow tables) are delivered to the user.
+
+This approach ensures passwords are not just mathematically complex, but also resilient against **precomputed hash attacks**.
+
+---
+
+## ✨ Features
+
+- **Rainbow Table Resistance** – Ensures passwords do not exist in known leak databases  
+- **OWASP Standard Compliance** – Generates strong passwords following modern security guidelines  
+- **Simple & Advanced Modes** – Tailor complexity to your specific needs  
+- **Privacy First** – No personal data collection, logging, or password storage  
+- **Free & Open Source** – Completely free to use  
+
+---
+
 ## 🌐 Access StablePass
 
 The primary and easiest way to use the tool is via our official website:
@@ -60,31 +85,6 @@ You may notice that `requirements.txt` specifies older versions of Flask and Wer
   We strictly pin `Werkzeug==2.2.2`. Newer versions (3.0+) removed the `url_quote` function, which causes the application to crash due to legacy Flask dependencies.
 
 🚫 **Do not upgrade these packages** in `requirements.txt` or the application will fail.
-
----
-
-## 🛡️ How StablePass Protects You
-
-1. **Password Generation**  
-   Users customize password properties such as length and character mix.
-
-2. **Hashing & Verification**  
-   The candidate password is hashed (MD5, SHA-256, etc.) and checked against **20+ online rainbow tables**.
-
-3. **Secure Delivery**  
-   Only passwords that return **zero matches** (uncrackable via rainbow tables) are delivered to the user.
-
-This approach ensures passwords are not just mathematically complex, but also resilient against **precomputed hash attacks**.
-
----
-
-## ✨ Features
-
-- **Rainbow Table Resistance** – Ensures passwords do not exist in known leak databases  
-- **OWASP Standard Compliance** – Generates strong passwords following modern security guidelines  
-- **Simple & Advanced Modes** – Tailor complexity to your specific needs  
-- **Privacy First** – No personal data collection, logging, or password storage  
-- **Free & Open Source** – Completely free to use  
 
 ---
 
