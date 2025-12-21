@@ -164,7 +164,7 @@ def CharacterCount(password):
 # (/) Password Generator: This is the homepage for the application where users can generate passwords.
 @app.route("/")
 def home():
-    return render_template('Home.html')
+    return render_template('home.html')
 
 
 # (/Process) Password Generator Process: This is used to obtain the inputs from the user and generate a secure password from ((/) Password Generator) page.
