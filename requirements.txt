@@ -1,3 +1,4 @@
 # We need to keep older versions as search_that_hash is no longer maintained and both require Click which is not compatible with newer version of Flask.
 Flask==2.1.1
 search_that_hash==0.2.8
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
