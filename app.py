@@ -195,7 +195,7 @@ def build_json_response(password, include_password=False, status=None):
 # (/) Password Generator: This is the homepage for the application where users can generate passwords.
 @app.route("/")
 def home():
-    show_performance_notice = os.getenv('SHOW_PERFORMANCE_NOTICE', '').strip().lower() in ('1', 'true', 'yes', 'on')
+    show_performance_notice = os.getenv('SHOW_PERFORMANCE_NOTICE', '').strip().lower() in ('yes')
     return render_template('home.html', show_performance_notice=show_performance_notice)
 
 

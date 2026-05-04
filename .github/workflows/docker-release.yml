@@ -1,5 +1,19 @@
-# Pipeline: Build and Publish Docker Image
-# Context: Triggers on new GitHub Release publication to build multi-arch images.
+# GitHub Actions Workflow: Build and Publish Docker Image
+# This workflow automates the building and publishing of Docker images for StablePass.
+# It triggers only when a new GitHub Release is published, ensuring stable versions are containerized.
+#
+# What happens:
+# 1. Triggers on release publication (manual or automated releases).
+# 2. Checks out the repository code.
+# 3. Sets up QEMU for ARM64 emulation (allows building for multiple architectures on AMD64 runners).
+# 4. Initializes Docker Buildx for advanced multi-platform builds.
+# 5. Logs into Docker Hub using stored secrets (DOCKER_USERNAME and DOCKER_PASSWORD).
+# 6. Builds and pushes multi-architecture images (AMD64 and ARM64) to Docker Hub.
+# 7. Tags images with the release version (e.g., v1.0.0) and 'latest'.
+#
+# Result: After a release, the Docker image is available on Docker Hub as secbysam/stablepass:latest and secbysam/stablepass:<version>.
+# This image can then be deployed to platforms like Render, which pulls from Docker Hub.
+
 name: Build and Publish Docker Image
 
 on:
