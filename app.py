@@ -1,4 +1,5 @@
 # Dependencies
+import os
 from flask import Flask, jsonify, render_template, request, jsonify
 from search_that_hash import api
 import secrets
@@ -161,10 +162,41 @@ def CharacterCount(password):
     return(passwordcharacters)
 
 
+def build_json_response(password, include_password=False, status=None):
+    hashes = hashing(password)
+    counts = CharacterCount(password)
+    response = {
+        'SHA256Hash': hashes[0],
+        'MD5Hash': hashes[1],
+        'SHA1Hash': hashes[2],
+        'SHA224Hash': hashes[3],
+        'SHA384Hash': hashes[4],
+        'SHA512Hash': hashes[5],
+        'BLAKE2BHash': hashes[6],
+        'BLAKE2SHash': hashes[7],
+        'SHA3_224Hash': hashes[8],
+        'SHA3_256Hash': hashes[9],
+        'SHA3_384Hash': hashes[10],
+        'SHA3_512Hash': hashes[11],
+        'LowercaseCount': counts[1],
+        'UppercaseCount': counts[2],
+        'SymbolCount': counts[3],
+        'NumbersCount': counts[4],
+        'passwordcharactersorder': counts[0],
+        'passwordstrength': passwordstrength(password)
+    }
+    if include_password:
+        response['password'] = password
+    if status is not None:
+        response['passwordstatus'] = status
+    return response
+
+
 # (/) Password Generator: This is the homepage for the application where users can generate passwords.
 @app.route("/")
 def home():
-    return render_template('home.html')
+    show_performance_notice = os.getenv('SHOW_PERFORMANCE_NOTICE', '').strip().lower() in ('yes')
+    return render_template('home.html', show_performance_notice=show_performance_notice)
 
 
 # (/Process) Password Generator Process: This is used to obtain the inputs from the user and generate a secure password from ((/) Password Generator) page.
@@ -229,26 +261,7 @@ def process():
             if SearchthatHash(hashing(passwordGenerated)) == "Uncrackable":
                 PasswordUncrackable = True
 
-        return jsonify({'password': passwordGenerated,
-                        'SHA256Hash': hashing(passwordGenerated)[0],
-                        'MD5Hash': hashing(passwordGenerated)[1],
-                        'SHA1Hash': hashing(passwordGenerated)[2],
-                        'SHA224Hash': hashing(passwordGenerated)[3],
-                        'SHA384Hash': hashing(passwordGenerated)[4],
-                        'SHA512Hash': hashing(passwordGenerated)[5],
-                        'BLAKE2BHash': hashing(passwordGenerated)[6],
-                        'BLAKE2SHash': hashing(passwordGenerated)[7],
-                        'SHA3_224Hash': hashing(passwordGenerated)[8],
-                        'SHA3_256Hash': hashing(passwordGenerated)[9],
-                        'SHA3_384Hash': hashing(passwordGenerated)[10],
-                        'SHA3_512Hash': hashing(passwordGenerated)[11],
-                        'LowercaseCount': CharacterCount(passwordGenerated)[1],
-                        'UppercaseCount': CharacterCount(passwordGenerated)[2],
-                        'SymbolCount': CharacterCount(passwordGenerated)[3],
-                        'NumbersCount': CharacterCount(passwordGenerated)[4],
-                        'passwordcharactersorder': CharacterCount(passwordGenerated)[0],
-                        'passwordstrength': passwordstrength(passwordGenerated)
-                        })
+        return jsonify(build_json_response(passwordGenerated, include_password=True))
     else:
         return jsonify({'error': 'Nothing Selected'})
 
@@ -268,47 +281,9 @@ def processchecker():
 
         # Hash Lookup Algorithm
         if SearchthatHash(hashing(Password)) == "Uncrackable":
-            return jsonify({'passwordstatus': 'NotCracked',
-                            'SHA256Hash': hashing(Password)[0],
-                            'MD5Hash': hashing(Password)[1],
-                            'SHA1Hash': hashing(Password)[2],
-                            'SHA224Hash': hashing(Password)[3],
-                            'SHA384Hash': hashing(Password)[4],
-                            'SHA512Hash': hashing(Password)[5],
-                            'BLAKE2BHash': hashing(Password)[6],
-                            'BLAKE2SHash': hashing(Password)[7],
-                            'SHA3_224Hash': hashing(Password)[8],
-                            'SHA3_256Hash': hashing(Password)[9],
-                            'SHA3_384Hash': hashing(Password)[10],
-                            'SHA3_512Hash': hashing(Password)[11],
-                            'LowercaseCount': CharacterCount(Password)[1],
-                            'UppercaseCount': CharacterCount(Password)[2],
-                            'SymbolCount': CharacterCount(Password)[3],
-                            'NumbersCount': CharacterCount(Password)[4],
-                            'passwordcharactersorder': CharacterCount(Password)[0],
-                            'passwordstrength': passwordstrength(Password)
-                            })
+            return jsonify(build_json_response(Password, status='NotCracked'))
         else:
-            return jsonify({'passwordstatus': 'Cracked',
-                            'SHA256Hash': hashing(Password)[0],
-                            'MD5Hash': hashing(Password)[1],
-                            'SHA1Hash': hashing(Password)[2],
-                            'SHA224Hash': hashing(Password)[3],
-                            'SHA384Hash': hashing(Password)[4],
-                            'SHA512Hash': hashing(Password)[5],
-                            'BLAKE2BHash': hashing(Password)[6],
-                            'BLAKE2SHash': hashing(Password)[7],
-                            'SHA3_224Hash': hashing(Password)[8],
-                            'SHA3_256Hash': hashing(Password)[9],
-                            'SHA3_384Hash': hashing(Password)[10],
-                            'SHA3_512Hash': hashing(Password)[11],
-                            'LowercaseCount': CharacterCount(Password)[1],
-                            'UppercaseCount': CharacterCount(Password)[2],
-                            'SymbolCount': CharacterCount(Password)[3],
-                            'NumbersCount': CharacterCount(Password)[4],
-                            'passwordcharactersorder': CharacterCount(Password)[0],
-                            'passwordstrength': passwordstrength(Password)
-                            })
+            return jsonify(build_json_response(Password, status='Cracked'))
     else:
         return jsonify({'error': 'NoPasswordEntered'})
 
